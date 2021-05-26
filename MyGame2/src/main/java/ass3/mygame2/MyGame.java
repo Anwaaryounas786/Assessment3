@@ -4,7 +4,8 @@ package ass3.mygame2;
 
 /**
  *
- * @author @version
+ * @author Anwaar and Aitzaz
+ * @version 2021.05.26
  */
 
 

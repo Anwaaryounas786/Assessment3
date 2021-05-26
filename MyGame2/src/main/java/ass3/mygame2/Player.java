@@ -7,8 +7,8 @@ import java.util.ArrayList;
 /**
  * Write a description of class Player here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Anwaar and Aitzaz
+ * @version 2021.05.26
  */
 public class Player
 {
