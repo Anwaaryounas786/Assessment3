@@ -28,7 +28,7 @@ public class Game {
     private int timeCounter; // to count the steps
 
     /**
-     * Create the game and initialise its internal map.
+     * Create the game and initialize its internal map.
      */
     public Game() {
         long timeStart = System.currentTimeMillis(); // use the real time
@@ -39,7 +39,9 @@ public class Game {
         currentRoom = rooms.getRoom("castle");  // start game outside
         //System.out.println(createRoom.getcurrentRoom().getName());
     }
-    
+    /**
+     * @return the name of current room
+     */
     public Room getCurrentRoom() {
         return currentRoom;
     }
@@ -136,6 +138,7 @@ public class Game {
     /**
      * Try to in to one direction. If there is an exit, enter the new room,
      * otherwise print an error message.
+     * @param command to process the command and find the entrance of room
      */
     private void goRoom(Command command) {
         if (!command.hasSecondWord()) {
@@ -163,7 +166,10 @@ public class Game {
             }
         }
     }
-
+    
+    /**
+     * @param command to process the command and pick an item from room
+     */
     private void takeItem(Command command) {
         if (!command.hasSecondWord()) {
             // if there is no second word, we don't know where to go...
@@ -187,7 +193,10 @@ public class Game {
             //System.out.println(currentRoom.getLongDescription());
         }
     }
-
+    
+    /**
+     * @param command to process the command and get item of a player
+     */
     private void dropItem(Command command) {
         if (!command.hasSecondWord()) {
             // if there is no second word, we don't know where to go...
@@ -211,7 +220,10 @@ public class Game {
             //System.out.println(currentRoom.getLongDescription());
         }
     }
-
+    
+    /**
+     * @param command to process the command and to use the item
+     */
     private void useItem(Command command) // use key
     {
         if (!command.hasSecondWord()) {

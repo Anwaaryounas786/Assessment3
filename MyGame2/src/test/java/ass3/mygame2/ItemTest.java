@@ -10,50 +10,33 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
- * @author Nigel Franciscus
+ * @author Irfan Ilyas
  */
 public class ItemTest {
     
-    Item item;
-    
+    Item item,item1;
     public ItemTest() {
-        item = new Item("gun","this is a gun", 0);
+        item=new Item("Item test","This is a test",100.0);
+        item1=new Item("Item test","This is a test",100);
+    }
+    /**
+     * Test of gethPower method, of class Item.
+     */
+    @Test
+    public void testGethPower() {
+        double expected=100.0;
+        double actual=item.gethPower();
+        assertEquals(expected,actual);
     }
 
     /**
-     * Test of getName method, of class Item.
+     * Test of getdPower method, of class Item.
      */
     @Test
-    public void testGetName() {
-        
-        //Item item = new Item("gun","this is a gun", 0);
-        String expected = "gun";
-        //String expected = "guns";     // failed test
-        String actual = item.getName();
-        
-        assertEquals(expected, actual);
-    }
-
-    
-
-    /**
-     * Test of getPower method, of class Item.
-     */
-    @Test
-    public void testGetPower() {
-        //Item item = new Item("gun","this is a gun", 0);
-        int expected = 0;
-        int actual = item.getPower();
-        
-        assertEquals(expected, actual);
-    }
-
-    /**
-     * Test of getDescription method, of class Item.
-     */
-    @Test
-    public void testGetDescription() {
-        assertEquals(0, 0);
+    public void testGetdPower() {
+        int expected=100;
+        int actual=item1.getdPower();
+        assertEquals(expected,actual);
     }
     
 }

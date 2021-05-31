@@ -5,7 +5,10 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 /**
- * Write at least 3 sentences!!!!!
+ * This class describe different features of a room
+ * it define the room direction, is it locked or not, where is the exit for the room
+ * it also return the list of items in room, all items 
+ * and room description to the calling function
  * 
  * @author  Anwaar and Aitzaz
  * @version 2021.05.26
@@ -56,8 +59,8 @@ public class Room
 
     /**
      * Return a description of the room in the form:
-     *     You are in the kitchen.
-     *     Exits: north west
+     * You are in the kitchen.
+     * Exits: north west
      * @return A long description of this room
      */
     public String getLongDescription()
@@ -65,12 +68,20 @@ public class Room
         return "You are " + description + ".\n" + getExitString() + ".\n" + getAllItems();
     }
 
+    /**
+     * get the name of all items in the room
+     * @return the name in the form of string
+     */
     public String getAllItems(){
 
         return "You have some " + listOfItems();
 
     }
 
+    /**
+     * process the list and get all items
+     * @return return the item in from of string
+     */
     private String listOfItems(){
 
         String returnString = "items:";
@@ -121,17 +132,30 @@ public class Room
         }
         return itemToReturn;
     }
-
+    
+    /**
+     * calls the add function to add item into room 
+     * @param item item passed by the calling function to add it into list
+     */
     public void addItemInRoom(Item item){
         roomItem.add(item);
     }
 
+    /**
+     * remove item from room by calling remove function
+     * @param item name of item which needs to remove
+     */
     public void removeItemInRoom(Item item){
         if(roomItem.size() > 0){
             roomItem.remove(item);
         }
     }
 
+    /**
+     * to add the map of room and define where is the exist of room
+     * @param room which room needs to put
+     * @param item which item needs to put
+     */
     public void addHashMapItemInRoom(Room room, Item item){
         roomHashMapItem.put(room, item);
     }
@@ -146,14 +170,43 @@ public class Room
         return isLocked;
     }
 
+    /**
+     * to set the lock status of room
+     * @param newStatus lock the room if value is true
+     */
     public void setLockedStatus(boolean newStatus){
         isLocked = newStatus;
     }
-    
+     /**
+      * get the name of room
+      * @return the name
+      */
     public String getName(){
         return name;
     }
-
-    
+    // Sprint number 4
+    /**
+     * it return the type of room according to the items
+     * so before putting a new item it can be easily to check the room type
+     * and easy to manage and know the items
+     * @return the string name of room and what kind of space it has
+     */
+    public String roomtype()
+    { 
+        String roomtype;
+        int i=0;
+        for(Item item : roomItem){
+               i++;         
+        }
+        if(i>5)
+        {
+            roomtype="large space";
+        }
+        else
+        {
+            roomtype="small space";
+        }
+        return roomtype;
+    }
 }
 
